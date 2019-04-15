@@ -7,11 +7,7 @@ enum alt_keycodes {
     DBG_MTRX,              //DEBUG Toggle Matrix Prints
     DBG_KBD,               //DEBUG Toggle Keyboard Prints
     DBG_MOU,               //DEBUG Toggle Mouse Prints
-    MD_BOOT,               //Restart into bootloader after hold timeout
-    SC_MAC_AE,
-    SC_MAC_O,
-    SC_MAC_U,
-    SC_MAC_SZ
+    MD_BOOT                //Restart into bootloader after hold timeout
 };
 
 enum {
@@ -157,11 +153,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (timer_elapsed32(key_timer) >= 500) {
                     reset_keyboard();
                 }
-            }
-            return false;
-        case SC_MAC_AE:
-            if (record->event.pressed) {
-              send_special_char_mac(KC_A);
             }
             return false;
         default:
